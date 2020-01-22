@@ -14,6 +14,8 @@ class User extends Model<User> {
 
   @Column
   public password !: string
+
+  checkPassword: (password: string) => boolean;
 }
 User.init({
   name: DataType.STRING,
@@ -31,8 +33,13 @@ User.init({
 
 User.beforeSave(async (user) => {
   if (user.password) {
-    user.password = await bcrypt.hash(user.password, 8) 
+    user.password = await bcrypt.hash(user.password, 8)
   }
 })
+
+User.prototype.checkPassword = (password: string): boolean => {
+  console.log('password', this.password_hash)
+  return bcrypt.compare(password, this.password_hash)
+}
 
 export default User
