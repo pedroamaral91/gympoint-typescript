@@ -9,7 +9,8 @@ const routes = Router()
 
 const userController = new UserController(User)
 
-routes.get('/', (req, res) => userController.index(req, res))
+routes.get('/user', (req, res) => userController.index(req, res))
+routes.post('/user', (req, res) => userController.store(req, res))
 
 routes.post('/session', SessionController.store)
 

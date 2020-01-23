@@ -26,7 +26,10 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
-    "types": ["reflect-metadata"]
+    "strict": true,
+    "types": ["reflect-metadata", "jest"],
+    "allowJs": true
   },
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }

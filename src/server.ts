@@ -1,6 +1,6 @@
 import App from './app'
-import express from 'express'
+import * as express from 'express'
 
-const server = new App(express)
+const server = new App(express())
 
 server.server.listen(3333)

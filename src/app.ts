@@ -1,14 +1,15 @@
-import express from 'express'
-import cors from 'cors'
-import morgan from 'morgan'
+import './bootstrap'
+import * as express from 'express'
+import * as cors from 'cors'
+import * as morgan from 'morgan'
 import routes from './routes'
 import './database'
 
 class App {
   public server: express.Application
 
-  public constructor (connection) {
-    this.server = connection()
+  public constructor (connection: express.Application) {
+    this.server = connection
     this.middlewares()
     this.routes()
   }

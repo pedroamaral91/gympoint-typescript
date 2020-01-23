@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import jwt from 'jsonwebtoken'
-import User from '../models/User'
+import * as jwt from 'jsonwebtoken'
+import User from '../../models/User'
 
 class SessionController {
   async store (req: Request, res: Response): Promise<Response> {
@@ -11,9 +11,7 @@ class SessionController {
       return res.status(401).json({ message: 'Not authorized' })
     }
 
-    console.log('passou')
-
-    if (!await User.prototype.checkPassword(password)) {
+    if (!await User.checkPassword(user, password)) {
       return res.status(401).json({ message: 'Not authorized' })
     }
 

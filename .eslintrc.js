@@ -1,7 +1,8 @@
 module.exports = {
   env: {
     es6: true,
-    node: true
+    node: true,
+    "jest/globals": true
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
@@ -17,6 +18,9 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module"
   },
-  plugins: ["@typescript-eslint"],
-  rules: {}
+  plugins: ["@typescript-eslint", "jest"],
+  rules: {
+    camelcase: "off",
+    "@typescript-eslint/camelcase": ["error", { properties: "never" }]
+  }
 };

@@ -1,6 +1,6 @@
 import { Column, Model, DataType } from 'sequelize-typescript'
 import connection from '../../database'
-import bcrypt from 'bcryptjs'
+import * as bcrypt from 'bcryptjs'
 
 class User extends Model<User> {
   @Column
@@ -15,7 +15,9 @@ class User extends Model<User> {
   @Column
   public password !: string
 
-  checkPassword: (password: string) => boolean;
+  static checkPassword (instance: User, password: string): Promise<boolean> {
+    return bcrypt.compare(password, instance.password_hash)
+  };
 }
 User.init({
   name: DataType.STRING,
@@ -23,23 +25,13 @@ User.init({
   password: DataType.VIRTUAL,
   password_hash: DataType.STRING
 }, {
-  defaultScope: {
-    attributes: {
-      exclude: ['password_hash']
-    }
-  },
   sequelize: connection
 })
 
 User.beforeSave(async (user) => {
   if (user.password) {
-    user.password = await bcrypt.hash(user.password, 8)
+    user.password_hash = await bcrypt.hash(user.password, 8)
   }
 })
-
-User.prototype.checkPassword = (password: string): boolean => {
-  console.log('password', this.password_hash)
-  return bcrypt.compare(password, this.password_hash)
-}
 
 export default User
