@@ -1,15 +1,15 @@
-import User from '../../models/User'
-import { ModelInterface } from '../../contracts/NonAbstractModel'
-import { Request, Response } from 'express'
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+
 
 class UserController {
-  public user: ModelInterface<User>;
+  
 
-  constructor (userModel: ModelInterface<User>) {
+  constructor (userModel) {
     this.user = userModel
   }
 
-  public async store (req: Request, res: Response): Promise<Response> {
+   async store (req, res) {
     try {
       const userExists = await this.user.findOne({ where: { email: req.body.email } })
       if (userExists) {
@@ -22,7 +22,7 @@ class UserController {
     }
   }
 
-  public async index (req: Request, res: Response): Promise<Response> {
+   async index (req, res) {
     try {
       const users = await this.user.findAll()
       return res.json({ users })
@@ -32,4 +32,4 @@ class UserController {
   }
 }
 
-export default UserController
+exports. default = UserController

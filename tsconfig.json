@@ -28,7 +28,8 @@
     "incremental": true,
     "strict": true,
     "types": ["reflect-metadata", "jest"],
-    "allowJs": true
+    "allowJs": true,
+    "esModuleInterop": true
   },
   "include": ["src"],
   "exclude": ["node_modules"]

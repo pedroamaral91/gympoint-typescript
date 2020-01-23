@@ -1,5 +1,5 @@
 import App from './app'
-import * as express from 'express'
+import express from 'express'
 
 const server = new App(express())
 

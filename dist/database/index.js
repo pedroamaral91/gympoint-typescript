@@ -5,19 +5,12 @@ var _database = require('../config/database'); var configDatabase = _interopRequ
 
 const config = {
   ...configDatabase,
-  dialect: configDatabase.dialect 
-}
+  dialect: configDatabase.dialect ,
+  storage: configDatabase.storage 
+} 
 
-class Database {
-  
-
-  constructor () {
-    this.init()
-  }
-
-   init () {
-    this.connection = new (0, _sequelizetypescript.Sequelize)(config)
-  }
+class Database {constructor() { Database.prototype.__init.call(this); }
+  __init() {this.connection = new (0, _sequelizetypescript.Sequelize)(config)}
 }
 
 exports. default = new Database().connection
