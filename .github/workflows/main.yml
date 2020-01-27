@@ -1,0 +1,9 @@
+name: CI App
+on: push
+
+jobs:
+  build:
+    name: Node build
+    runs-os: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
