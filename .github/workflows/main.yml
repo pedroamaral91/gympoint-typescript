@@ -5,10 +5,10 @@ jobs:
   build:
     name: Node build
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: test
+      DB_DIALECT: sqlite
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: "13.x"
       - run: yarn
       - run: yarn test
