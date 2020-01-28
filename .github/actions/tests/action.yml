@@ -1,7 +1,0 @@
-name: "run-tests"
-description: "Run tests"
-run:
-  using: "Docker"
-  image: "Dockerfile"
-branding:
-  icon: "download"
