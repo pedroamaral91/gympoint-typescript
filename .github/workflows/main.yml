@@ -7,3 +7,4 @@ jobs:
     runs-os: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - uses: ./.github/actions/tests
