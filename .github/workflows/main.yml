@@ -6,6 +6,7 @@ jobs:
     name: Node build
     runs-on: ubuntu-latest
     steps:
+      - uses: mirromutth/mysql-action@v1.1
       - uses: actions/checkout@v1
       - run: yarn
       - run: yarn test
