@@ -6,9 +6,9 @@ jobs:
     name: Node build
     runs-on: ubuntu-latest
     env:
-      NODE_ENV: test
       DB_DIALECT: sqlite
     steps:
       - uses: actions/checkout@v1
+      - uses: hallee/eslint-action@1.0.1
       - run: yarn
       - run: yarn test
