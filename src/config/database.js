@@ -1,5 +1,6 @@
 require("../bootstrap");
-
+console.log("dialect", process.env.DB_DIALECT);
+console.log("host", process.env.DB_HOST);
 module.exports = {
   dialect: process.env.DB_DIALECT || "mysql",
   host: process.env.DB_HOST,
