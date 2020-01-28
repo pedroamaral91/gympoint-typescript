@@ -2,5 +2,3 @@ name: install node
 run:
   using: "Docker"
   image: "Dockerfile"
-  branding:
-    icon: "download"
