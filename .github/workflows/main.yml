@@ -4,7 +4,7 @@ on: push
 jobs:
   build:
     name: Node build
-    runs-os: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: ./.github/actions/tests
